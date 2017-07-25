@@ -1,5 +1,7 @@
 package com.async.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,7 +14,7 @@ public class ListDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public ListVo getList(){
-		return sqlSession.selectOne("list.getList");
+	public List<ListVo> getList(){
+		return sqlSession.selectList("list.getList");
 	}
 }
