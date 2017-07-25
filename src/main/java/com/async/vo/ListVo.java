@@ -2,11 +2,20 @@ package com.async.vo;
 
 public class ListVo {
 
+	int idx;
 	String name;
 	String color;
 	String tips;
 	String contents;
 	String images;
+
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
 
 	public String getName() {
 		return name;
