@@ -21,4 +21,8 @@ public class ListDao {
 	public int delete(int delete_num){
 		return sqlSession.delete("list.delete", delete_num);
 	}
+	
+	public int insert( ListVo listVo ) {
+		return sqlSession.insert( "list.insert", listVo );
+	}
 }

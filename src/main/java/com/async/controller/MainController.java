@@ -6,10 +6,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.async.service.ListService;
 import com.async.vo.ListVo;
@@ -42,6 +44,36 @@ public class MainController {
 		Map<String, String> map = new HashMap<String, String>(); 
 		map.put( "result", result );
 		
+		
+		return map;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping( value="/insert", method=RequestMethod.POST )
+	public Map<String, String> insert( @ModelAttribute ListVo listVo ) {
+           
+		String result = "fail";
+		
+		if(listVo != null){
+			if(service.insert(listVo)){
+				result = "success";
+			}
+		}
+		
+		Map<String, String> map = new HashMap<String, String>(); 
+		map.put( "result", result );
+		
+		return map;
+	}
+	
+	@ResponseBody
+	@RequestMapping( value="/upfile", method=RequestMethod.POST )
+	public Map<String, String> upfile(@RequestParam( value="file1" ) MultipartFile file1 ) {
+		
+		String result = "fail";
+		Map<String, String> map = new HashMap<String, String>(); 
+		map.put( "result", result );
 		
 		return map;
 	}

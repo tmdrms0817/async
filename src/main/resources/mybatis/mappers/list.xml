@@ -12,4 +12,9 @@
 		delete from test where idx = #{delete_num }
 		]]>	
 	</delete>
+	<insert id="insert" parameterType="listvo">
+		<![CDATA[
+		INSERT INTO test VALUES (null,#{name},#{color},#{tips},#{contents},#{images})
+		]]>
+	</insert>
 </mapper>
