@@ -81,6 +81,7 @@ public class MainController {
 		String result = "fail";
 		
 		if(file1 != null){
+			LOG.debug( "받아온 값이 null 입니다." );
 			result = fileUploadService.restore( file1 );
 		}
 		
