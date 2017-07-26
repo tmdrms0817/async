@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.async.service.FileUploadService;
 import com.async.service.ListService;
 import com.async.vo.ListVo;
 
@@ -21,6 +22,7 @@ public class MainController {
 	
 	@Autowired
 	private ListService service;
+	private FileUploadService fileUploadService;
 
 	@ResponseBody
 	@RequestMapping( "/getlist" )
@@ -72,6 +74,11 @@ public class MainController {
 	public Map<String, String> upfile(@RequestParam( value="file1" ) MultipartFile file1 ) {
 		
 		String result = "fail";
+		
+		if(file1 != null){
+			result = fileUploadService.restore( file1 );
+		}
+		
 		Map<String, String> map = new HashMap<String, String>(); 
 		map.put( "result", result );
 		
