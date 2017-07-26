@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +21,8 @@ import com.async.vo.ListVo;
 
 @Controller
 public class MainController {
+	
+	private static final Log LOG = LogFactory.getLog( MainController.class );
 	
 	@Autowired
 	private ListService service;
@@ -73,6 +77,7 @@ public class MainController {
 	@RequestMapping( value="/upfile", method=RequestMethod.POST )
 	public Map<String, String> upfile(@RequestParam( value="file1" ) MultipartFile file1 ) {
 		
+		LOG.debug( "일단 여기를 탐. ~~~~~~~~~~~~~~" );
 		String result = "fail";
 		
 		if(file1 != null){
