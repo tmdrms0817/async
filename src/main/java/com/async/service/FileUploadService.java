@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadService {
 	
 	private static final String SAVE_PATH = "/uploads"; 
-	private static final String PREFIX_URL = "/uploads/images/";
+	//private static final String PREFIX_URL = "/uploads/images/";
 	
 	public String restore( MultipartFile multipartFile ) {
 		
@@ -29,7 +29,7 @@ public class FileUploadService {
 			
 			writeFile( multipartFile, saveFileName );
 			
-			url = PREFIX_URL + saveFileName;
+			url = saveFileName;
 			
 		} catch( IOException e ) {
 			throw new RuntimeException( e );
