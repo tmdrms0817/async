@@ -19,5 +19,8 @@ public class ListService {
 		System.out.println(listDao.getList());
 		return listDao.getList();
 	}
+	public boolean delete(int delete_num){
+		return listDao.delete(delete_num) == 1;
+	}
 
 }

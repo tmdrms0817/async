@@ -7,4 +7,9 @@
 		 select * from test
 		 ]]>
 	</select>
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+		delete from test where idx = #{delete_num }
+		]]>	
+	</delete>
 </mapper>

@@ -17,4 +17,8 @@ public class ListDao {
 	public List<ListVo> getList(){
 		return sqlSession.selectList("list.getList");
 	}
+	
+	public int delete(int delete_num){
+		return sqlSession.delete("list.delete", delete_num);
+	}
 }
